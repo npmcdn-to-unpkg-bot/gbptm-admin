@@ -2,36 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import sidebar from './img/sidebar.svg';
 import StatisticsDisplay from './statisticsDisplay'
-import Chart from 'react-d3-core';
-import LineChart from 'react-d3-core';
+//import Chart from 'react-d3-core';
+//import LineChart from 'react-d3-core';
 
 
 class App extends Component {
   render() {
-
-	var width = 700,
-    height = 300,
-    margins = {left: 100, right: 100, top: 50, bottom: 50},
-    title = "User sample",
-    chartSeries = [
-      {
-        field: 'BMI',
-        name: 'BMI',
-        color: '#ff7f0e'
-      }
-    ],
-    // your x accessor
-    x = function(d) {
-      return d.index;
-    }
-
-	var chartData = [
-	  
-	]
-
-
-
-
     return (
 		<div id="mainContainer" className="container">
 			<div id="innerContainer">
