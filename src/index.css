@@ -1,0 +1,156 @@
+#mainContainer {
+	width: 100%;
+	height: 100%;
+	background-color: #FFF;
+}
+.col {
+	height: 100%;
+	display: block;
+	position: absolute;
+	right: 0px;
+}
+#sidebar {
+	left: -300px;
+	top: 40px;
+	height: calc(100% - 40px);
+	width: 300px;
+	background-color: #DDD;
+	transition-duration: 0.2s;
+	border-top-style: solid;
+	border-top-color: #AAA;
+}
+.Open {
+	left: 0px !important;
+	transition-duration: 0.2s;
+}
+#main {
+	width: 100%;
+	left: 0px;
+	top: 0px;
+}
+#dataArea {
+	position: absolute;
+	top: 40px;
+}
+h1, h2, h3, h4, p {
+	margin: 0px;
+	padding: 0px;
+	color: #1a1a1a;
+	font-family: Cabin, sans-serif;
+	white-space: nowrap;
+	display: inline;
+}
+#main > div > h2 {
+	margin: 3px;
+}
+#sb_button {
+	height: 40px;
+	width: 40px;
+	padding: 5px;
+	margin-right: 10px;
+	background-color: #217821;
+    border: none;
+    float: left;
+    display: inline-block;
+    user-drag: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+}
+.topbar {
+	top: 0px;
+	left: 0px;
+	position: absolute;
+	background-color: #DDD;
+	height: 40px;
+	width: 100%;
+	padding: 0px;
+	display: inline-block;
+	overflow: hidden;
+	border-bottom-style: solid;
+	border-bottom-color: #AAA;
+}
+#flexbox {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.dataBox {
+	background-color: #217821;
+	border-color: #217821;
+	border-radius: 3px;
+	width: 250px;
+	height: 100px;
+	margin: 5px;
+	display: inline-block;
+	position: relative;
+}
+.dataBox > h2 {
+	top: 37px;
+	right: 10px;
+	color: white;
+	display: inline-block;
+	position: absolute;
+}
+.dataBox > p {
+	background-color: white;
+	border-color: white;
+	border-radius: 3px;
+	float: left;
+	bottom: 0px;
+	left: 0px;
+	width: calc(100% - 15px);
+	padding: 3px;
+	margin: 5px;
+	position: absolute;
+	overflow: hidden;
+}
+.dataBox > img {
+	margin: 10px;
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+}
+#sb_flexbox {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.pageLink {
+	background-color: #CCC;
+	border-bottom-style: solid;
+	border-bottom-color: #AAA;
+	width: 290px;
+	height: 50px;
+	vertical-align: middle;
+	text-align: center;
+	padding: 10px;
+}
+.pageLink > h2 {
+	height: 100%;
+	width: 100%;
+	margin-top: 20px;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 25px;
+	color: #666;
+}
+#footer {
+	font-size: 11px;
+	left: 0px;
+	padding: 2px;
+	bottom: 0px;
+	height: 15px;
+	position: absolute;
+	color: #217821;
+}
+#footer > a {
+	color: #5fd35f;
+}
+#footer > a:visited {
+	color: #37c837;
+}
+
+.sidebar-button {
+	width:30px;
+	heigh:30px;
+}
