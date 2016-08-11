@@ -1,9 +1,11 @@
 var $ = require('jquery');
 import React, { Component } from 'react';
-import IndividualStat from './individualStat'
+//import IndividualStat from './individualStat'
+import StatisticsDisplay from './statisticsDisplay'
+import ChartArea from './chartArea'
 
 
-class StatisticsDisplay extends Component{
+class totalDisplay extends Component{
   constructor(props) {
 	super(props);
 
@@ -25,25 +27,22 @@ class StatisticsDisplay extends Component{
   }
 
   render() {
+		return(
+			<div>	
+				<div id="dataArea">
+					<StatisticsDisplay stats={this.state.stats}/>
+					{(this.state.stats[Object.keys(this.state.stats)[0]] === 'loading' ? <ChartArea/> : '')}
+				</div>
+				
+			</div>
+		)
 
-
-    var children = []   
-    for (var property in this.state.stats) {
-        if (this.state.stats.hasOwnProperty(property)) {
-            if(typeof this.state.stats[property] === "number"){
-					var child = <IndividualStat key={property} value={this.state.stats[property]} header={property}/>
-                	children.push(child);
-            }
-        }
-    }
-    var root = React.createElement('div', {"className":"flexbox"},children);
-    return root
   }
 };
-StatisticsDisplay.PropTypes = {
+totalDisplay.PropTypes = {
 	stats: React.PropTypes.object.isRequired
 };
-StatisticsDisplay.defaultProps = {
-      stats: {"Total Toilets Recorded":"","Toilets Active on Map":"","Inactive/Removed Toilets":"","Total Loo Reports Recorded":"","Total Reports via Web UI/API":"","Reports from Data Collections":"","Toilet Removal Reports":""
+totalDisplay.defaultProps = {
+      stats: {"Total Toilets Recorded":"loading","Toilets Active on Map":"loading","Inactive/Removed Toilets":"loading","Total Loo Reports Recorded":"loading","Total Reports via Web UI/API":"loading","Reports from Data Collections":"loading","Toilet Removal Reports":"loading"
 }};
-export default StatisticsDisplay
+export default totalDisplay
