@@ -31,7 +31,7 @@ class totalDisplay extends Component{
 			<div>	
 				<div id="dataArea">
 					<StatisticsDisplay stats={this.state.stats}/>
-					{(this.state.stats[Object.keys(this.state.stats)[0]] === 'loading' ? <ChartArea/> : '')}
+					<ChartArea/>
 				</div>
 				
 			</div>
@@ -43,6 +43,6 @@ totalDisplay.PropTypes = {
 	stats: React.PropTypes.object.isRequired
 };
 totalDisplay.defaultProps = {
-      stats: {"Total Toilets Recorded":"loading","Toilets Active on Map":"loading","Inactive/Removed Toilets":"loading","Total Loo Reports Recorded":"loading","Total Reports via Web UI/API":"loading","Reports from Data Collections":"loading","Toilet Removal Reports":"loading"
+      stats: {"Total Toilets Recorded":"","Toilets Active on Map":"","Inactive/Removed Toilets":"","Total Loo Reports Recorded":"","Total Reports via Web UI/API":"","Reports from Data Collections":"","Toilet Removal Reports":""
 }};
 export default totalDisplay
