@@ -52,7 +52,9 @@ totalDisplay.defaultProps = {
 					"Total Loo Reports Recorded":"",
 					"Total Reports via Web UI/API":"",
 					"Reports from Data Collections":"",
-					"Toilet Removal Reports":""
+					"Toilet Removal Reports":"",
+					"Loos with Mutiple Reports": ""
+
 				},
 				"percentages":{
 					"somepercentage":""

@@ -10,7 +10,7 @@
 	right: 0px;
 }
 #sidebar {
-	left: -300px;
+	left: 0px;
 	top: 40px;
 	height: calc(100% - 40px);
 	width: 300px;
@@ -60,6 +60,9 @@ h1, h2, h3, h4, p {
     user-drag: none;
     -moz-user-select: none;
     -webkit-user-drag: none;
+}
+#sb_button:active {
+	background-color: white;
 }
 .topbar {
 	top: 0px;
@@ -162,6 +165,11 @@ h1, h2, h3, h4, p {
 	width:30px;
 	heigh:30px;
 } 
+
+.sidebar-button:active {
+	background-color:white;
+} 
+
 
 #barchartdiv {
 	flex-direction: column;

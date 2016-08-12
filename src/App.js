@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import './App.css';
-import sidebar from './components/img/sidebar.svg';
-import TotalDisplay from './components/totalDisplay'
+import TotalDisplay from './components/totalDisplay';
+import SidebarButton from './components/sidebarButton';
 
 
 
@@ -17,9 +17,7 @@ class App extends Component {
 				</div>
 				<div id="main" className="col" >
 					<span className="topbar">
-						<div id="sb_button">
-							<img src={sidebar} className="sidebar-button" alt="logo" />
-						</div>
+						<SidebarButton/>
 						<h1>GBPTM Admin Panel</h1>
 					</span>
 					<TotalDisplay source="http://localhost:3002/statistics"/>
