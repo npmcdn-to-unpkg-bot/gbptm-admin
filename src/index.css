@@ -10,7 +10,7 @@
 	right: 0px;
 }
 #sidebar {
-	left: -300px;
+	left: 0px;
 	top: 40px;
 	height: calc(100% - 40px);
 	width: 300px;
@@ -24,8 +24,8 @@
 	transition-duration: 0.2s;
 }
 #main {
-	width: 100%;
-	left: 0px;
+	width: calc(100% - 300px);
+	left: 300px;
 	top: 0px;
 }
 #dataArea {
@@ -78,15 +78,16 @@ h1, h2, h3, h4, p {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	margin-top: 25px;
 	margin-bottom: 50px;
 }
-@media (min-width: 1000px) {
+@media (min-width: 1400px) {
 	.flexbox {
 		margin-left: calc(50% - 525px);
 		margin-right: calc(50% - 525px);
 	}
 }
-@media (max-width: 1100px) {
+@media (max-width: 1400px) {
 	.flexbox {
 		width: 95%;
 	}
