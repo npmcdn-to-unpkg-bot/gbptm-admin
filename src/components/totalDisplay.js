@@ -1,8 +1,8 @@
 var $ = require('jquery');
 import React, { Component } from 'react';
-//import IndividualStat from './individualStat'
 import StatisticsDisplay from './statisticsDisplay'
-import ChartArea from './chartArea'
+//import ChartArea from './chartArea'
+import SliderDisplay from './sliderDisplay'
 
 
 class totalDisplay extends Component{
@@ -31,7 +31,8 @@ class totalDisplay extends Component{
 			<div>	
 				<div id="dataArea">
 					<StatisticsDisplay stats={this.state.stats}/>
-					<ChartArea/>
+					{/*<ChartArea/>*/}
+					<SliderDisplay stats={this.state.stats}/>
 				</div>
 				
 			</div>
@@ -43,6 +44,19 @@ totalDisplay.PropTypes = {
 	stats: React.PropTypes.object.isRequired
 };
 totalDisplay.defaultProps = {
-      stats: {"Total Toilets Recorded":"","Toilets Active on Map":"","Inactive/Removed Toilets":"","Total Loo Reports Recorded":"","Total Reports via Web UI/API":"","Reports from Data Collections":"","Toilet Removal Reports":""
-}};
+      stats: {
+				"numbers":{
+					"Total Toilets Recorded":"",
+					"Toilets Active on Map":"",
+					"Inactive/Removed Toilets":"",
+					"Total Loo Reports Recorded":"",
+					"Total Reports via Web UI/API":"",
+					"Reports from Data Collections":"",
+					"Toilet Removal Reports":""
+				},
+				"percentages":{
+					"somepercentage":""
+				}
+			}
+};
 export default totalDisplay

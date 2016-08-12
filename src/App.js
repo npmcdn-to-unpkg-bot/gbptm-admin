@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import sidebar from './img/sidebar.svg';
-import StatisticsDisplay from './statisticsDisplay'
-//import Chart from 'react-d3-core';
-//import LineChart from 'react-d3-core';
+import sidebar from './components/img/sidebar.svg';
+import TotalDisplay from './components/totalDisplay'
+
 
 
 class App extends Component {
   render() {
+
     return (
 		<div id="mainContainer" className="container">
 			<div id="innerContainer">
@@ -22,10 +22,7 @@ class App extends Component {
 						</div>
 						<h1>GBPTM Admin Panel</h1>
 					</span>
-					<div id="dataArea">
-						<StatisticsDisplay source="https://greatbritishpublictoiletmap.rca.ac.uk/statistics"/>
-
-					</div>
+					<TotalDisplay source="http://localhost:3002/statistics"/>
 				</div>
 			</div>
 		</div>
@@ -34,3 +31,8 @@ class App extends Component {
 }
 
 export default App;
+
+
+
+
+

@@ -12,3 +12,4 @@ class ChartArea extends Component{
   }
 };
 export default ChartArea
+

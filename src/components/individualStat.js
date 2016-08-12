@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import pin from './img/pin.svg';
-var loading = "loading"
-
-
 
 class IndividualStat extends Component{
   render() {

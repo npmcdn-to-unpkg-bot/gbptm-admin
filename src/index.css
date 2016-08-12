@@ -32,6 +32,11 @@
 	position: absolute;
 	top: 40px;
 }
+#chartArea {
+	position: absolute;
+	top: 300px;
+}
+
 h1, h2, h3, h4, p {
 	margin: 0px;
 	padding: 0px;
@@ -69,7 +74,7 @@ h1, h2, h3, h4, p {
 	border-bottom-style: solid;
 	border-bottom-color: #AAA;
 }
-#flexbox {
+.flexbox {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -153,4 +158,56 @@ h1, h2, h3, h4, p {
 .sidebar-button {
 	width:30px;
 	heigh:30px;
+} 
+
+#barchartdiv {
+	flex-direction: column;
+	width: 100%;
+	padding: 0px;
+	display: inline-block;
 }
+.barchart {
+	display: inline-block;
+	width: 70%;
+	height: 75px;
+	margin: 5px;
+	white-space: nowrap;
+	border: solid;
+	border-radius: 3px;
+	border-color: #666;
+}
+.barchart > p {
+	float: left;
+	width: 200px;
+	height: 75px;
+	margin: 5px;
+	word-wrap: break-word;
+	overflow: hidden;
+	white-space: normal !important;
+}
+.fakebar {
+	top: 0px;
+	margin-left: 200px;
+	display: block;
+	height: 100%;
+	background-color: #782121;
+}
+.fakebar > h2 {
+	color: white;
+	float: left;
+	height: 30px;
+	margin-top: calc(37.25px - 15px);
+}
+.fakebar_green {
+	top: 0px;
+	left: 0px;
+	display: block;
+	height: 100%;
+	background-color: #217821;
+	transition-duration: 0.2s;
+}
+.barchart:hover > .fakebar > .fakebar_green {
+	background-color: #049504;
+	transition-duration: 0.2s;
+}
+

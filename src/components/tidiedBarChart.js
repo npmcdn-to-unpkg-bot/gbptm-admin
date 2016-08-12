@@ -8,9 +8,8 @@ var BarChart=require('react-d3-basic').BarChart;
 
 class TidiedBarGraph extends Component{
   render() {
-
-	  var xAxis = this.props.x;
-	  var yAxis = this.props.y;
+	  var xAxis = this.props.x
+	  var yAxis = this.props.y
 	  var generalChartData=this.props.data
 	  var width=700,
 		height=350,
