@@ -1,0 +1,283 @@
+#mainContainer {
+	width: 100%;
+	height: 100%;
+	background-color: #FFF;
+}
+.col {
+	display: block;
+	position: absolute;
+	right: 0px;
+}
+#sidebar {
+	left: -300px;
+	top: 40px;
+	height: calc(100% - 40px);
+	width: 300px;
+	background-color: #DDD;
+	transition-duration: 0.2s;
+}
+.Open {
+	left: 0px !important;
+	transition-duration: 0.2s;
+}
+#main {
+	width: 100%;
+	left: 0px;
+	top: 0px;
+}
+#dataArea {
+	position: absolute;
+	top: 40px;
+	width: calc(100% - 20px);
+	height: 100%;
+}
+h1, h2, h3, h4, p {
+	margin: 0px;
+	padding: 0px;
+	color: #1a1a1a;
+	font-family: Cabin, sans-serif;
+	white-space: nowrap;
+	display: inline;
+}
+#main > div > h2 {
+	margin: 3px;
+}
+#sb_button {
+	height: 40px;
+	width: 40px;
+	padding: 5px;
+	margin-right: 10px;
+	background-color: #217821;
+    border: none;
+    float: left;
+    display: inline-block;
+}
+.topbar {
+	top: 0px;
+	left: 0px;
+	position: absolute;
+	background-color: #DDD;
+	height: 40px;
+	width: 100%;
+	padding: 0px;
+	display: inline-block;
+	overflow: hidden;
+	border-bottom-style: solid;
+	border-bottom-color: #AAA;
+}
+#flexbox {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+.dataBox {
+	background-color: #217821;
+	border-color: #217821;
+	border-radius: 3px;
+	width: 250px;
+	height: 100px;
+	margin: 5px;
+	display: inline-block;
+	position: relative;
+}
+.dataBox > h2 {
+	top: 37px;
+	right: 10px;
+	color: white;
+	display: inline-block;
+	position: absolute;
+}
+.dataBox > p {
+	background-color: white;
+	border-color: white;
+	border-radius: 3px;
+	float: left;
+	bottom: 0px;
+	left: 0px;
+	width: calc(100% - 15px);
+	padding: 3px;
+	margin: 5px;
+	position: absolute;
+	overflow: hidden;
+}
+.dataBox > img {
+	margin: 10px;
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+}
+#sb_flexbox {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+.pageLink {
+	background-color: #CCC;
+	border-bottom-style: solid;
+	border-bottom-color: #AAA;
+	width: 100%;
+	height: 50px;
+	vertical-align: middle;
+	text-align: center;
+	padding: 10px;
+	text-decoration: none;
+	transition-duration: 0.1s;
+}
+.pageLink:hover {
+	background-color: #BBB;
+	transition-duration: 0.1s;
+}
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+.pageLink > h2 {
+	height: 100%;
+	width: 100%;
+	margin-top: 20px;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 25px;
+	color: #666;
+}
+#footer {
+	font-size: 11px;
+	left: 0px;
+	padding: 2px;
+	bottom: 0px;
+	height: 15px;
+	position: absolute;
+	color: #217821;
+}
+#footer > a {
+	color: #5fd35f;
+}
+#footer > a:visited {
+	color: #37c837;
+}
+
+
+#barchartdiv {
+	flex-direction: column;
+	width: 100%;
+	padding: 0px;
+	display: inline-block;
+}
+.barchart {
+	display: inline-block;
+	width: 100%;
+	height: 75px;
+	margin: 5px;
+	white-space: nowrap;
+	border: solid;
+	border-radius: 3px;
+	border-color: #666;
+}
+.barchart > p {
+	float: left;
+	width: 200px;
+	height: 75px;
+	margin: 5px;
+	word-wrap: break-word;
+	overflow: hidden;
+	white-space: normal !important;
+}
+.fakebar {
+	top: 0px;
+	margin-left: 200px;
+	display: block;
+	height: 100%;
+	background-color: #782121;
+}
+.fakebar > h2 {
+	color: white;
+	float: left;
+	height: 30px;
+	margin-top: calc(37.25px - 15px);
+}
+.fakebar_green {
+	top: 0px;
+	left: 0px;
+	display: block;
+	height: 100%;
+	background-color: #217821;
+	transition-duration: 0.2s;
+}
+.barchart:hover > .fakebar > .fakebar_green {
+	background-color: #049504;
+	transition-duration: 0.2s;
+}
+
+
+#searchForm input, #searchForm select, #searchForm label {
+	line-height: 1.5;
+	outline-offset: 0.125em;
+	color: #1a1a1a;
+	font-family: Cabin, sans-serif;
+	font-size: 18px;
+	width: 100%;
+}
+#searchForm input, #searchForm select {
+	height: 33px;
+	border: 2px solid #222;
+	background-color: white;
+	margin-bottom: 10px;
+}
+#searchButton {
+	display: inline-block;
+	top: 0px;
+	height: 84px;
+	width: 84px;
+}
+#searchForm {
+	float: left;
+	display: flex;
+	flex-direction: column;
+	width: 250px;
+	height: 100%;
+	border-right: 3px solid #AAA;
+	padding: 3px;
+}
+#QueryDisplay {
+	float: left;
+	display: flex;
+	flex-direction: column;
+	width: calc(100% - 290px);
+	height: 100%;
+}
+.LooDataBox {
+	height: 25px;
+	width: 100%;
+	background-color: #DDD;
+	border: 2px solid #DDD;
+	border-radius: 3px;
+	margin: 10px;
+	padding: 5px;
+	overflow: hidden;
+	transition-duration: 0.2s;
+}
+.LooDataBox:hover {
+	transition-duration: 0.2s;
+	height: 200px;
+}
+.LooDataBox > div:first-child {
+	display: inline-flex;
+	justify-content: space-around;
+	height: 25px;
+	width: 100%;
+}
+.LooDataBoxMore {
+	margin-top: 15px;
+	padding: 5px;
+	width: 100%;
+	height: 160px;
+	display: inline-flex;
+	align-content: flex-start;
+	background-color: #CCC;
+}
+.LooDataBoxMore > div {
+	border: 2px solid #DDD;
+	min-width: 150px;
+	margin: 3px;
+	padding: 3px;
+}
