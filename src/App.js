@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+//import './App.css';
 import sidebar from './components/img/sidebar.svg';
 import TotalDisplay from './components/totalDisplay'
 
