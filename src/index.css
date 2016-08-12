@@ -211,3 +211,75 @@ h1, h2, h3, h4, p {
 	transition-duration: 0.2s;
 }
 
+#searchForm input, #searchForm select, #searchForm label {
+	line-height: 1.5;
+	outline-offset: 0.125em;
+	color: #1a1a1a;
+	font-family: Cabin, sans-serif;
+	font-size: 18px;
+	width: 100%;
+}
+#searchForm input, #searchForm select {
+	height: 33px;
+	border: 2px solid #222;
+	background-color: white;
+	margin-bottom: 10px;
+}
+#searchButton {
+	display: inline-block;
+	top: 0px;
+	height: 84px;
+	width: 84px;
+}
+#searchForm {
+	float: left;
+	display: flex;
+	flex-direction: column;
+	width: 250px;
+	height: 100%;
+	border-right: 3px solid #AAA;
+	padding: 3px;
+}
+#QueryDisplay {
+	float: left;
+	display: flex;
+	flex-direction: column;
+	width: calc(100% - 290px);
+	height: 100%;
+}
+.LooDataBox {
+	height: 25px;
+	width: 100%;
+	background-color: #DDD;
+	border: 2px solid #DDD;
+	border-radius: 3px;
+	margin: 10px;
+	padding: 5px;
+	overflow: hidden;
+	transition-duration: 0.2s;
+}
+.LooDataBox:hover {
+	transition-duration: 0.2s;
+	height: 200px;
+}
+.LooDataBox > div:first-child {
+	display: inline-flex;
+	justify-content: space-around;
+	height: 25px;
+	width: 100%;
+}
+.LooDataBoxMore {
+	margin-top: 15px;
+	padding: 5px;
+	width: 100%;
+	height: 160px;
+	display: inline-flex;
+	align-content: flex-start;
+	background-color: #CCC;
+}
+.LooDataBoxMore > div {
+	border: 2px solid #DDD;
+	min-width: 150px;
+	margin: 3px;
+	padding: 3px;
+}
