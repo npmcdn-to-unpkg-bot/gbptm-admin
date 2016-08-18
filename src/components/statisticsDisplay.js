@@ -11,7 +11,7 @@ class StatisticsDisplay extends Component{
 			children.push(child);
         }
     }
-    var root = React.createElement('div', {"className":"flexbox"},children);
+    var root = React.createElement('div', {"className":"flexbox","id":"statisticsDisplay"},children);
     return root
   }
 };

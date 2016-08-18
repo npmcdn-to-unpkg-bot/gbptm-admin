@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Slider from './slider'
 
 
-class StatisticsDisplay extends Component{
+class SliderDisplay extends Component{
   render() {
     var children = []   
     for (var property in this.props.stats.percentages) {
@@ -11,8 +11,8 @@ class StatisticsDisplay extends Component{
 			children.push(child)
         }
     }
-    var root = React.createElement('div', {"className":"flexbox"},children);
+    var root = React.createElement('div', {"className":"flexbox","id":"sliderDisplay"},children);
     return root
   }
 };
-export default StatisticsDisplay
+export default SliderDisplay

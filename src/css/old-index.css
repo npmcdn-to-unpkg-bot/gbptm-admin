@@ -4,37 +4,39 @@
 	background-color: #FFF;
 }
 .col {
+	height: 100%;
 	display: block;
 	position: absolute;
 	right: 0px;
 }
 #sidebar {
-	left: -300px;
-	top: 40px;
-	height: calc(100% - 40px);
+	top:53px;
+	left: 0px;
+	height: calc(100% - 53px);
 	width: 300px;
 	background-color: #DDD;
-	transition-duration: 0.2s;
 }
 .Open {
 	left: 0px !important;
 	transition-duration: 0.2s;
 }
 #main {
-	width: 100%;
-	left: 0px;
+	width: calc(100% - 300px);
+	left: 300px;
 	top: 0px;
 }
 #dataArea {
 	position: absolute;
 	top: 40px;
-	width: calc(100% - 20px);
-	height: 100%;
 }
+#chartArea {
+	position: absolute;
+	top: 300px;
+}
+
 h1, h2, h3, h4, p {
 	margin: 0px;
 	padding: 0px;
-	color: #1a1a1a;
 	font-family: Cabin, sans-serif;
 	white-space: nowrap;
 	display: inline;
@@ -51,24 +53,44 @@ h1, h2, h3, h4, p {
     border: none;
     float: left;
     display: inline-block;
+    user-drag: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+}
+#sb_button:active {
+	background-color: white;
 }
 .topbar {
+	color:#ffffff;
 	top: 0px;
 	left: 0px;
 	position: absolute;
-	background-color: #DDD;
+	background-color: #55acee;
 	height: 40px;
 	width: 100%;
-	padding: 0px;
+	padding: 5px;
 	display: inline-block;
 	overflow: hidden;
 	border-bottom-style: solid;
 	border-bottom-color: #AAA;
 }
-#flexbox {
+.flexbox {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: flex-start;
+	justify-content: center;
+	margin-top: 25px;
+	margin-bottom: 50px;
+}
+@media (min-width: 1400px) {
+	.flexbox {
+		margin-left: calc(50% - 525px);
+		margin-right: calc(50% - 525px);
+	}
+}
+@media (max-width: 1400px) {
+	.flexbox {
+		width: 95%;
+	}
 }
 .dataBox {
 	background-color: #217821;
@@ -115,21 +137,11 @@ h1, h2, h3, h4, p {
 	background-color: #CCC;
 	border-bottom-style: solid;
 	border-bottom-color: #AAA;
-	width: 100%;
+	width: 290px;
 	height: 50px;
 	vertical-align: middle;
 	text-align: center;
 	padding: 10px;
-	text-decoration: none;
-	transition-duration: 0.1s;
-}
-.pageLink:hover {
-	background-color: #BBB;
-	transition-duration: 0.1s;
-}
-a:hover, a:visited, a:link, a:active
-{
-    text-decoration: none;
 }
 .pageLink > h2 {
 	height: 100%;
@@ -155,6 +167,15 @@ a:hover, a:visited, a:link, a:active
 #footer > a:visited {
 	color: #37c837;
 }
+
+.sidebar-button {
+	width:30px;
+	heigh:30px;
+} 
+
+.sidebar-button:active {
+	background-color:white;
+} 
 
 
 #barchartdiv {
@@ -187,7 +208,7 @@ a:hover, a:visited, a:link, a:active
 	margin-left: 200px;
 	display: block;
 	height: 100%;
-	background-color: #782121;
+	background-color: #d1e8fa;
 }
 .fakebar > h2 {
 	color: white;
@@ -207,7 +228,6 @@ a:hover, a:visited, a:link, a:active
 	background-color: #049504;
 	transition-duration: 0.2s;
 }
-
 
 #searchForm input, #searchForm select, #searchForm label {
 	line-height: 1.5;
