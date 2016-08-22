@@ -13,9 +13,10 @@ import utils from './utils'
 class totalDisplay extends Component{
   constructor(props) {
 	super(props);
+	var todaysDate = new Date();
 	this.state = {
 		stats: props.stats,
-		query:{"timescale":"Overall","beginDate":"2000/1/1","endDate":"2001/1/1"},
+		query:{"timescale":"Overall","beginDate":"2000/1/1","endDate":utils.dateMaker({days:todaysDate.getDate(),months:todaysDate.getMonth()+1,years:todaysDate.getFullYear()})},
 		disabled: {"beginDate":true,"endDate":true}
 	};
   }
@@ -36,7 +37,6 @@ class totalDisplay extends Component{
   queryUpdater(field,value){
 	var query = this.state.query;
 	query[field]=value
-	console.log('mode',this.state.query.timescale)
 	this.setState({query:query});
 
 	if (this.state.query.timescale==="Custom"){
@@ -44,8 +44,38 @@ class totalDisplay extends Component{
 		disabled: {"beginDate":false,"endDate":false}
       }); 
 	}else{
+	  var todaysDate = new Date();
+	  var beginDate = new Date();
+	  if (this.state.query.timescale ==="Year"){
+	  	beginDate.setFullYear(beginDate.getFullYear()-1);
+	  }
+	  if (this.state.query.timescale ==="Month"){
+	  	beginDate.setMonth(beginDate.getMonth()-1);
+	  }
+	  if (this.state.query.timescale ==="Week"){
+	  	beginDate.setDate(beginDate.getDate()-7);
+	  }
+	  //overall is a little bit of a fudge because it all takes in reports that don't actually have time stamps...so having a begin date is a little misleading....
+	  if (this.state.query.timescale ==="Overall"){
+	  	beginDate.setDate(1);
+	  	beginDate.setMonth(0);
+	  	beginDate.setFullYear(2000);
+	  }
+
+	
+		
+	  beginDate = utils.dateMaker({days:beginDate.getDate(),months:beginDate.getMonth()+1,years:beginDate.getFullYear()})
+	  todaysDate = utils.dateMaker({days:todaysDate.getDate(),months:todaysDate.getMonth()+1,years:todaysDate.getFullYear()})
+	  query["beginDate"] = beginDate;
+	  query["endDate"] = todaysDate;
+	  console.log(this.state.query.timescale)
+	  console.log('begin',beginDate)	
+	  console.log('endDate',todaysDate)
+
+	  
       this.setState({
-		disabled: {"beginDate":true,"endDate":true}
+		disabled: {"beginDate":true,"endDate":true},
+		query:query
       }); 
 	}
 
@@ -84,14 +114,7 @@ totalDisplay.PropTypes = {
 totalDisplay.defaultProps = {
       stats: {
 				"numbers":{
-					"Total Toilets Recorded":"",
-					"Toilets Active on Map":"",
-					"Inactive/Removed Toilets":"",
-					"Total Loo Reports Recorded":"",
-					"Total Reports via Web UI/API":"",
-					"Reports from Data Collections":"",
-					"Toilet Removal Reports":"",
-					"Loos with Mutiple Reports": ""
+					"somenumber" :""
 
 				},
 				"percentages":{

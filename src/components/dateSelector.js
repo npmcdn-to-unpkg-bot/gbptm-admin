@@ -56,7 +56,7 @@ class MultiSelector extends Component{
 					disabled={this.state.disabled}
 					className="selectorDropDown"		
 					name="days"
-					value = {this.state.date.days}
+					value={this.state.date.days}
 					onChange={this.handleChange}>
 						{days.map(function(object, i){
 							return <option value={object}>{object}</option>;
@@ -76,7 +76,7 @@ class MultiSelector extends Component{
 					disabled={this.state.disabled}
 					className="selectorDropDown"		
 					name="years"
-					value = {this.state.date.years}
+					value={this.state.date.years}
 					onChange={this.handleChange}>
 						{years.map(function(object, i){
 							return <option value={object}>{object}</option>;

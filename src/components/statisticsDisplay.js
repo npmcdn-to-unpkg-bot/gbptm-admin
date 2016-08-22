@@ -9,6 +9,8 @@ class StatisticsDisplay extends Component{
         if (this.props.stats.numbers.hasOwnProperty(property)) {
 			var child = <IndividualStat key={property} value={this.props.stats.numbers[property]} header={property}/>
 			children.push(child);
+			console.log(children)
+
         }
     }
     var root = React.createElement('div', {"className":"flexbox","id":"statisticsDisplay"},children);

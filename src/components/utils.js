@@ -4,13 +4,15 @@ var utils = {
 		var queryString = '?'
 		var counter = 0;
 		for(var index in queryJson) { 
-			var attr = queryJson[index]; 
-			if (counter ===0){
-				queryString = queryString + index + "=" + attr
-			}else{
-				queryString =  queryString +'&'+ index + "=" + attr
+			if(queryJson.hasOwnProperty(index)){
+				var attr = queryJson[index]; 
+				if (counter ===0){
+					queryString = queryString + index + "=" + attr
+				}else{
+					queryString =  queryString +'&'+ index + "=" + attr
+				}
+				counter +=1
 			}
-			counter +=1
 		}
 		return queryString
 	},
