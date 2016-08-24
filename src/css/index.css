@@ -39,6 +39,17 @@ body{
 	padding:2vh;
 }
 
+.danger-button {
+	margin-left:7%;
+	margin-right:7%;
+	text-align:center;
+	margin-bottom:3%;
+	background-color:#E62121;
+	color:#ffffff;
+	padding:2vh;
+}
+
+
 .sidebar-item:hover {
 	background-color:#165016;
 }
