@@ -1,30 +1,22 @@
 import React, { Component } from 'react';
 //import './App.css';
 import SideBar from './components/sideBar'
-import DangerButton from './components/dangerButton'
-import WebsocketSpan from './components/websocketSpan'
+import WebsocketResult from './components/websocketResult'
 
 
 
 class Dangerous extends Component {
-  constructor(props) {
-	super(props);
-	this.state = {updateAreaNumber:0};
-  }
-
-  test(){
-	console.log("things got clicked")	
-  }
-
-
   render() {
     return (
 			<div id="mainContainer" className="container">
 				<SideBar />
 				<div id="main" className="col" >
-					<h1>Dangerous Operations</h1>
-					<DangerButton onClick={this.test} text="Updates area on ALL loos"/>
-					<h2><WebsocketSpan value="this is loading" text='here be buttons'/></h2>
+					<div className='innerContainer'>
+						<h1>Private Operations</h1>
+						<div className='operationsContainer'>		
+							<WebsocketResult value="0" buttonText='Click to update Area details on ALL loos' connectTo='ws://localhost:3003/updateArea' label="Results Processed"/>
+						</div>
+					</div>
 				</div>
 			</div>
 

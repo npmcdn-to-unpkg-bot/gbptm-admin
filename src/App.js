@@ -11,7 +11,7 @@ class App extends Component {
 			<div id="mainContainer" className="container">
 				<SideBar />
 				<div id="main" className="col" >
-					<TotalDisplay source="http://localhost:3002/statistics"/>
+					<TotalDisplay source="http://localhost:3002"/>
 				</div>
 			</div>
 

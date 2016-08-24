@@ -40,14 +40,16 @@ body{
 }
 
 .danger-button {
-	margin-left:7%;
-	margin-right:7%;
 	text-align:center;
-	margin-bottom:3%;
 	background-color:#E62121;
 	color:#ffffff;
 	padding:2vh;
 }
+
+.danger-button:disabled {
+	background:#bbbbbb;
+}
+
 
 
 .sidebar-item:hover {
@@ -197,7 +199,19 @@ h1,h2,h3,h4{
 	background:#bbbbbb;
 }
 
+.title{
+	margin-top:3%;
+	margin-left:4%;
+}
 
+
+.innerContainer{
+	padding:3%;
+}
+
+.operationsContainer{
+	padding-top:4%;
+}
 
 
 

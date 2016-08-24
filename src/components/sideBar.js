@@ -14,7 +14,7 @@ class SideBar extends Component{
 		</Link>
 		<Link to={`/dangerous`}>
 			<div className="sidebar-item">
-				<h2>Dangerous</h2>
+				<h2>Private</h2>
 			</div>
 		</Link>
 		<div className="sidebar-item">

@@ -1,7 +1,7 @@
 var utils = {
 
-	queryBuilder(queryJson){
-		var queryString = '?'
+	queryBuilder(base,page,queryJson){
+		var queryString = base + "/"+ page + '?'
 		var counter = 0;
 		for(var index in queryJson) { 
 			if(queryJson.hasOwnProperty(index)){

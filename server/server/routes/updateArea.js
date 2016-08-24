@@ -10,17 +10,29 @@ router.ws('/updateArea', function(ws,req) {
 			if (!error && response.statusCode == 200) {
 				body = JSON.parse(body)
 				//safety catch
-				body.features = body.features.slice(1000,1003) //for testing so as not to hammer the api
-				for(var i = 0; i < body.features.length; i++) {
-				  (function(i){
+				body.features = body.features.slice(0,200) //for testing so as not to hammer the api
+				for(var i = 0; i <= body.features.length; i++) {
+				  (function(i,body){
 					setTimeout(function(){
-					  ws.send(i.toString());
-					  console.log(i);
-					  request('http://localhost:3002/loos/'+body.features[i]._id+'/updateArea',function(error,response,body){
-					  })
+
+						if(i === body.features.length){
+							ws.send(JSON.stringify({"value":"finished"}))
+							console.log('finished')
+						  }else{
+							  if(i===0){
+							  	ws.send(JSON.stringify({"value":i+1,"total":body.features.length}));
+								console.log(i + 1);
+								request('http://localhost:3002/loos/'+body.features[i]._id+'/updateArea',function(error,response,body){})
+
+							  }else{
+								  ws.send(JSON.stringify({"value":i+1}));
+								  console.log(i + 1);
+								  request('http://localhost:3002/loos/'+body.features[i]._id+'/updateArea',function(error,response,body){})
+							  }
+					      }
 
 				  }, 2000 * i)
-				 })(i);
+				 })(i,body);
 				}
 			}
 		})
