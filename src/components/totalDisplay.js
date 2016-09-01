@@ -6,6 +6,7 @@ import SliderDisplay from './sliderDisplay'
 import Selector from './selector'
 import DateSelector from './dateSelector'
 import utils from './utils'
+import config from '../config'
 
 
 
@@ -16,8 +17,16 @@ class totalDisplay extends Component{
 	var todaysDate = new Date();
 	this.state = {
 		stats: props.stats,
-		query:{"timescale":"Overall","beginDate":"2000/1/1","endDate":utils.dateMaker({days:todaysDate.getDate(),months:todaysDate.getMonth()+1,years:todaysDate.getFullYear()}),"area":"Any","areaType":"Any"},
-		disabled: {"beginDate":true,"endDate":true},
+		query:{"timescale":"Overall",
+			   "beginDate":"2000/1/1",
+			   "endDate":utils.dateMaker({days:todaysDate.getDate(),months:todaysDate.getMonth()+1,years:todaysDate.getFullYear()}),
+				"area":"All",
+				"areaType":"All"
+		},
+		disabled: {
+					"beginDate":true,
+					"endDate":true
+				},
 		areaData:{},
 		areaTypeList:[],
 		areaList:[]
@@ -25,10 +34,12 @@ class totalDisplay extends Component{
   }
 
 
+
+
   componentDidMount() {
-    this.serverRequest1 = $.get(utils.queryBuilder("http://localhost:3002"   ,"statistics",{"areaList":true}), function (result) {
-	  console.log(result.data[result.areaTypes[0]])
-	  console.log(result.areaTypes[0])
+
+	//gets list of areas and area Types to use in the area dropdowns
+    this.getAreaList = $.get(utils.queryBuilder("http://"+config.gbptmAddress,"statistics",{"areaList":true}), function (result) {
       this.setState({
         areaData: result.data,
 		areaTypeList: result.areaTypes,
@@ -38,8 +49,8 @@ class totalDisplay extends Component{
 
 
 
-
-    this.serverRequest2 = $.get(utils.queryBuilder("http://localhost:3002"   ,"statistics",this.state.query), function (result) {
+	//Gets stats about the database applying default queries
+    this.getStatistics = $.get(utils.queryBuilder("http://"+config.gbptmAddress,"statistics",this.state.query), function (result) {
       this.setState({
         stats: result,
       }); 
@@ -49,19 +60,29 @@ class totalDisplay extends Component{
   }
 
   componentWillUnmount() {
-    this.serverRequest.abort();
+	if(this.serverRequest){
+    	this.serverRequest.abort();
+	}
   }
   
+  //Called everytime a dropdown is changed so as to change the query sent to statistics
   queryUpdater(field,value){
+	
+	//handles vanilla drop downs
 	var query = this.state.query;
 	query[field]=value
-	this.setState({query:query});
+	//this adds the new value to the query for manipulation later
+	this.setState({query:query})
 
+
+
+	//whether disabled or not
+	var pickDateDisabled = this.state.disabled.beginDate
+	//sets timescales within the queries, these are always sent	
 	if (this.state.query.timescale==="Custom"){
-      this.setState({
-		disabled: {"beginDate":false,"endDate":false}
-      }); 
+		pickDateDisabled = false;
 	}else{
+	  pickDateDisabled = true
 	  var todaysDate = new Date();
 	  var beginDate = new Date();
 	  if (this.state.query.timescale ==="Year"){
@@ -73,36 +94,27 @@ class totalDisplay extends Component{
 	  if (this.state.query.timescale ==="Week"){
 	  	beginDate.setDate(beginDate.getDate()-7);
 	  }
-	  //overall is a little bit of a fudge because it all takes in reports that don't actually have time stamps...so having a begin date is a little misleading....
 	  if (this.state.query.timescale ==="Overall"){
 	  	beginDate.setDate(1);
 	  	beginDate.setMonth(0);
 	  	beginDate.setFullYear(2000);
 	  }
 
-      this.setState({
-		areaList: this.state.areaData[this.state.query.areaType]
-	  })
-	  
-
-	
-		
+	  //amalgamates the fields into a single string that can be read by the server as opposed to using UTC timestamp, since date is ONLY needed not time
 	  beginDate = utils.dateMaker({days:beginDate.getDate(),months:beginDate.getMonth()+1,years:beginDate.getFullYear()})
 	  todaysDate = utils.dateMaker({days:todaysDate.getDate(),months:todaysDate.getMonth()+1,years:todaysDate.getFullYear()})
 	  query["beginDate"] = beginDate;
 	  query["endDate"] = todaysDate;
-	  console.log(this.state.query.timescale)
-	  console.log('begin',beginDate)	
-	  console.log('endDate',todaysDate)
 
-	  
-      this.setState({
-		disabled: {"beginDate":true,"endDate":true},
-		query:query
-      }); 
 	}
 
-    this.serverRequest = $.get(utils.queryBuilder("http://localhost:3002"  ,"statistics",this.state.query), function (result) {
+      this.setState({
+		disabled: {"beginDate":pickDateDisabled,"endDate":pickDateDisabled},
+		query:query,
+		areaList: this.state.areaData[this.state.query.areaType]
+      }); 
+
+    this.serverRequest = $.get(utils.queryBuilder("http://"+config.gbptmAddress  ,"statistics",this.state.query), function (result) {
       this.setState({
         stats: result
       }); 

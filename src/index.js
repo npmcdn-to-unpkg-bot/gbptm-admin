@@ -3,17 +3,24 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import NoMatch from './noMatch';
 import Dangerous from './Dangerous';
+import Search from './Search'
+import NameSearch from './NameSearch'
+import AreaSearch from './AreaSearch'
 
 import './css/index.css';
-import { Router, Route, browserHistory} from 'react-router'
 
+import { Router, Route, hashHistory} from 'react-router'
 
-//this is slightly wonky in electron atm...ie it doesnt appear that / is actually the home page...
+var history = hashHistory
+
 ReactDOM.render((
-  <Router history={browserHistory}>
-    <Route path="/" component={App}/>
-    <Route path="/dangerous" component={Dangerous}/>
-    <Route path="/*" component={NoMatch}/>
+  <Router history={history}>
+	<Route path="/" component={App}/>
+	<Route path="/private" component={Dangerous}/>
+	<Route path="/search" component={Search}/>
+	<Route path="/nameSearch" component={NameSearch}/>
+	<Route path="/areaSearch" component={AreaSearch}/>
+    <Route path="/*" component={NoMatch} />
   </Router>
 ), document.getElementById('root'))
 

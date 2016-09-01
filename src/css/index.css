@@ -137,7 +137,6 @@ h1,h2,h3,h4{
 	float: left;
 	width: 200px;
 	height: 75px;
-	margin: 5px;
 	word-wrap: break-word;
 	overflow: hidden;
 	white-space: normal !important;
@@ -158,21 +157,55 @@ h1,h2,h3,h4{
 	background-color: #d1e8fa;
 }
 
-.fakebar > h2 {
+.fakebar_orange > h2 {
 	color: white;
 	float: left;
 	height: 30px;
+	margin-left:3px;
 	margin-top: calc(37.25px - 15px);
 }
 
+.fakebar_green > h2 {
+	color: white;
+	float: left;
+	height: 30px;
+	margin-left:3px;
+	margin-top: calc(37.25px - 15px);
+}
+
+
+.fakebar_orange {
+	vertical-align:top;
+	top: 0px;
+	left: 0px;
+	display: block;
+	height: 100%;
+	background-color: #ff9900;
+	transition-duration: 0.2s;
+    display: inline-block;
+	font-size: 12px;
+	color: #fff;
+	vertical-align:top;
+	float:left;
+}
+
+
+
 .fakebar_green {
+	vertical-align:top;
 	top: 0px;
 	left: 0px;
 	display: block;
 	height: 100%;
 	background-color: #217821;
 	transition-duration: 0.2s;
+    display: inline-block;
+	font-size: 12px;
+	color: #fff;
+	vertical-align:top;
+	float:left;
 }
+
 .barchart:hover > .fakebar > .fakebar_green {
 	background-color: #049504;
 	transition-duration: 0.2s;
@@ -191,8 +224,6 @@ h1,h2,h3,h4{
 	background:#217821;
 	color:white;
 	font-size:70%;
-	margin-left:2%;
-	margin-bottom:2%;
 }
 
 .selectorDropDown:disabled {
@@ -213,6 +244,70 @@ h1,h2,h3,h4{
 	padding-top:4%;
 }
 
+#footer{
+	margin-top:5%;
+	margin-left:5%;
+}
 
+a{
+	text-decoration: none;
+	color:#ffffff;
+}
+
+
+.searchButton {
+	text-align:center;
+	font-size:170%;
+	background-color:#217821;
+	color:#ffffff;
+	padding:2vh;
+}
+
+.searchBar {
+	margin-left:10%;
+	font-size:170%;
+	width:60%;
+	color:#1a1a1a;
+	padding:2vh;
+}
+
+.searchResult {
+	margin-top:1%;
+	margin-left:10%;
+	width:60%;
+	background-color:#217821;
+	color:#ffffff;
+	padding:2vh;
+	
+
+}
+
+.searchResults {
+	margin-top:4%;
+
+}
+
+.center{
+	text-align:center;
+}
+
+.searchChoice{
+	color:#ffffff;
+	background-color: #217821;
+	border-color: #217821;
+	border-radius: 3px;
+	width: 250px;
+	height: 100px;
+	margin:8px;
+	display: inline-block;
+	position: relative;
+	text-align:center;
+	font-size:150%;
+
+}
+
+.searchChoice:hover{
+	background-color:#55acee;
+}
 
 

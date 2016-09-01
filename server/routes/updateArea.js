@@ -3,6 +3,8 @@ var router = express.Router();
 var request = require('request')
 
 
+//todo better reporting when these fail....
+
 router.ws('/updateArea', function(ws,req) {
 	console.log('got connection')
 	ws.on('message',function(msg){
@@ -10,7 +12,7 @@ router.ws('/updateArea', function(ws,req) {
 			if (!error && response.statusCode == 200) {
 				body = JSON.parse(body)
 				//safety catch
-				body.features = body.features.slice(0,200) //for testing so as not to hammer the api
+				body.features = body.features.slice(9000,9200) //for testing so as not to hammer the api
 				for(var i = 0; i <= body.features.length; i++) {
 				  (function(i,body){
 					setTimeout(function(){

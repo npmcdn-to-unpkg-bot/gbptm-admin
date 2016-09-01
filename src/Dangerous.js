@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import './App.css';
 import SideBar from './components/sideBar'
 import WebsocketResult from './components/websocketResult'
-
+import config from './config'
 
 
 class Dangerous extends Component {
@@ -14,7 +14,7 @@ class Dangerous extends Component {
 					<div className='innerContainer'>
 						<h1>Private Operations</h1>
 						<div className='operationsContainer'>		
-							<WebsocketResult value="0" buttonText='Click to update Area details on ALL loos' connectTo='ws://localhost:3003/updateArea' label="Results Processed"/>
+							<WebsocketResult value="0" buttonText='Click to update Area details on ALL loos' connectTo={'ws://'+config.backendAddress+'/updateArea'} label="Results Processed"/>
 						</div>
 					</div>
 				</div>

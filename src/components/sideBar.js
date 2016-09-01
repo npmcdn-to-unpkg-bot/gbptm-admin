@@ -7,19 +7,21 @@ class SideBar extends Component{
 	return (
 	<div id="sidebar" className="col">
 		<h1 className="sidebar-title">GBPTM Admin</h1>
-		<Link to={`/`}>
+		<Link to={"/"}>
 			<div className="sidebar-item">
 				<h2>Statistics</h2>
 			</div>
 		</Link>
-		<Link to={`/dangerous`}>
+		<Link to={"/private"}>
 			<div className="sidebar-item">
 				<h2>Private</h2>
 			</div>
 		</Link>
-		<div className="sidebar-item">
-			<h2>Toilet Editor</h2>
-		</div>
+		<Link to={"/search"}>
+			<div className="sidebar-item">
+				<h2>Search</h2>
+			</div>
+		</Link>
 		<div className="sidebar-item">
 			<h2>Config</h2>
 		</div>

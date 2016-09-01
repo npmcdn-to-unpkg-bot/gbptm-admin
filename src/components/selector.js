@@ -19,16 +19,14 @@ class Selector extends Component{
     return (
       <div className="selector">
 		  <h2>{this.props.label}:
-			  <span>
-				  <select 
-					className="selectorDropDown"		
-					value={this.state.value} 
-					onChange={this.handleChange}>
-						{this.props.options.map(function(object, i){
-							return <option value={object}>{object}</option>;
-						})}
-				  </select>
-			  </span>
+			  <select 
+				className="selectorDropDown"		
+				value={this.state.value} 
+				onChange={this.handleChange}>
+					{this.props.options.map(function(object, i){
+						return <option value={object}>{object}</option>;
+					})}
+			  </select>
 		  </h2>
       </div>        
     );
